@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="قناة 23MohammedYT على يوتيوب تعرض محتوى متنوع مثل الألغاز والألعاب الفكرية.">
+		<meta name="author" content="23MohammedYT">
+		<title>23MohammedYT</title>
+		<!-- Link to Google Material Icons -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/91f684aec9.js" crossorigin="anonymous"></script>
+		<!-- Link to site icon -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="home.css">
+	</head>
+	<body>
+		<!-- Header Section -->
+		<header>
+			<nav>
+				<div class="nav-content">
+					<h1>23MohammedYT</h1>
+					<ul>
+						<li><a href="#home">الرئيسية</a></li>
+						<li><a href="#about">الألعاب</a></li>
+						<li><a href="#contact">عن الموقع</a></li>
+					</ul>
+				</div>
+				<input type="search" placeholder="بحث..." />
+			</nav>
+		</header>
+
+		<!-- Add this div inside the main content section or where you want the videos to appear -->
+		<section id="youtube-videos">
+			<h1>أحدث مقاطع الفيديو</h1>
+			<div id="videos-container" class="slider-container">
+				<!-- Videos will be dynamically loaded here -->
+			</div>
+
+			<!-- Navigation buttons -->
+			<button class="prev" onclick="moveSlide(-1)">&#10095;</button>
+			<button class="next" onclick="moveSlide(1)">&#10094;</button>
+		</section>
+
+
+		<!-- Footer Section -->
+		<footer>
+			<div class="contact-container">
+				<div class="footer-links">
+					<h1>تابعنا على</h1>
+					<div class="social-links">
+						<a href="https://www.facebook.com/23MohammedYT" target="_blank">
+							<i class="fa-brands fa-facebook"></i> فيس بوك
+						</a>
+						<a href="https://twitter.com/23MohammedYT" target="_blank">
+							<i class="fa-brands fa-x-twitter"></i> إكس
+						</a>
+						<a href="https://www.youtube.com/channel/23MohammedYT" target="_blank">
+							<i class="fa-brands fa-youtube"></i> يوتيوب
+						</a>
+						<a href="https://www.tiktok.com/@23MohammedYT" target="_blank">
+							<i class="fa-brands fa-tiktok"></i> تيك توك
+						</a>
+					</div>
+				</div>
+				
+				<div class="contact-details">
+					<h1>تواصل معنا</h1>
+					<p>البريد الإلكتروني: <a href="mailto:contact@23mohammedyt.com">contact@23mohammedyt.com</a></p>
+					<p>رقم الهاتف: +123456789</p>
+				</div>
+			</div>
+			
+			<p>&copy; 2024 23MohammedYT. جميع الحقوق محفوظة.</p>
+		</footer>
+		
+		<script>
+			const API_KEY = 'AIzaSyBTKbYgMWj2BqrgThaAsZoe27d65d0xOWQ'; // Replace with your API Key
+			const CHANNEL_ID = 'UCLGDh8O14GuiOw2DLF8ghLQ';  // Replace with your YouTube Channel ID
+			const TOTAL_VIDEOS = 10; // Total number of videos to show
+			const VIDEOS_PER_PAGE = 5; // Number of videos to show per page (slide)
+			let currentPage = 0; // Keeps track of the current page
+
+			// Function to fetch and display the latest videos
+			function fetchYouTubeVideos() {
+				const url = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&order=date&part=snippet&type=video&maxResults=${TOTAL_VIDEOS}`;
+
+				fetch(url)
+					.then(response => response.json())
+					.then(data => {
+						const videosContainer = document.getElementById('videos-container');
+						videosContainer.innerHTML = ''; // Clear any previous videos
+
+						const videos = data.items.map(item => {
+							const videoId = item.id.videoId;
+							const title = item.snippet.title;
+							const thumbnail = item.snippet.thumbnails.medium.url;
+							const videoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+							// Create a video card for each video
+							return {
+								videoId,
+								title,
+								thumbnail,
+								videoUrl
+							};
+						});
+
+						// Store the videos in a global variable
+						window.videos = videos;
+
+						// Initialize the slider to show the first page of videos
+						showVideosForPage(currentPage);
+					})
+					.catch(error => console.error('Error fetching YouTube videos:', error));
+			}
+
+			// Function to display videos for the current page
+			function showVideosForPage(page) {
+				const videosContainer = document.getElementById('videos-container');
+				const startIndex = page * VIDEOS_PER_PAGE;
+				const endIndex = startIndex + VIDEOS_PER_PAGE;
+				const videosToShow = window.videos.slice(startIndex, endIndex);
+
+				videosContainer.innerHTML = ''; // Clear any previous videos
+
+				videosToShow.forEach(video => {
+					const videoCard = document.createElement('div');
+					videoCard.classList.add('video-card');
+					videoCard.innerHTML = `
+						<a href="${video.videoUrl}" target="_blank">
+							<img src="${video.thumbnail}" alt="${video.title}" />
+							<h3>${video.title}</h3>
+						</a>
+					`;
+					videosContainer.appendChild(videoCard);
+				});
+			}
+
+			// Function to move to the next or previous set of videos
+			function moveSlide(direction) {
+				const totalPages = Math.ceil(window.videos.length / VIDEOS_PER_PAGE);
+
+				// Update the current page index based on direction
+				currentPage = (currentPage + direction + totalPages) % totalPages;
+
+				// Show the videos for the current page
+				showVideosForPage(currentPage);
+			}
+
+			// Call the function to fetch and display videos on page load
+			window.onload = fetchYouTubeVideos;
+
+		</script>
+	</body>
+</html>

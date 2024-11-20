@@ -1,0 +1,45 @@
+{
+  "games": [
+    {
+      "timage": "https://example.com/game1-thumbnail.jpg",
+      "title": "Game 1 Title",
+      "description": "Game 1 is an exciting adventure game where players embark on a quest to save the world from an ancient evil.",
+      "links": [
+        {
+          "title": "Official Website",
+          "url": "https://example.com/game1"
+        },
+        {
+          "title": "Play on Steam",
+          "url": "https://store.steampowered.com/app/game1"
+        }
+      ]
+    },
+    {
+      "timage": "https://example.com/game2-thumbnail.jpg",
+      "title": "Game 2 Title",
+      "description": "Game 2 offers a competitive multiplayer experience where teams battle it out in strategic combat.",
+      "links": [
+        {
+          "title": "Official Website",
+          "url": "https://example.com/game2"
+        }
+      ]
+    },
+    {
+      "timage": "https://example.com/game3-thumbnail.jpg",
+      "title": "Game 3 Title",
+      "description": "Game 3 is a casual puzzle game that challenges your brain with intriguing and fun puzzles.",
+      "links": [
+        {
+          "title": "Official Website",
+          "url": "https://example.com/game3"
+        },
+        {
+          "title": "Download on Google Play",
+          "url": "https://play.google.com/store/apps/game3"
+        }
+      ]
+    }
+  ]
+}
