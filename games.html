@@ -84,18 +84,20 @@
 					const gameCard = document.createElement('div');
 					gameCard.classList.add('game-card');
 					
+					// Wrap the entire game card in an <a> tag for the link
+					const gameLink = document.createElement('a');
+					gameLink.href = game.links[0].url; // Use the first link URL for the card
+					gameLink.target = "_blank"; // Open the link in a new tab
+
 					// Create the HTML content for the game card
-					gameCard.innerHTML = `
+					gameLink.innerHTML = `
 					  <img src="${game.timage}" alt="${game.title}" />
 					  <h3>${game.title}</h3>
 					  <p>${game.description}</p>
-					  ${game.links.map(link => `
-						<a href="${link.url}" target="_blank">${link.title}</a>
-					  `).join('')}
 					`;
 					
-					// Append the game card to the container
-					gamesContainer.appendChild(gameCard);
+					// Append the game card inside the <a> tag to the container
+					gamesContainer.appendChild(gameLink);
 				  });
 				})
 				.catch(error => {
