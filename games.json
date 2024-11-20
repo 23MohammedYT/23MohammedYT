@@ -1,20 +1,20 @@
 {
   "games": [
     {
-      "timage": "https://example.com/game1-thumbnail.jpg",
-      "title": "Game 1 Title",
-      "description": "Game 1 is an exciting adventure game where players embark on a quest to save the world from an ancient evil.",
-      "links": [
-        {
-          "title": "Official Website",
-          "url": "https://example.com/game1"
-        },
-        {
-          "title": "Play on Steam",
-          "url": "https://store.steampowered.com/app/game1"
-        }
-      ]
-    },
+	  "timage": "crossword.png",
+	  "title": "الكلمات المتقاطعة",
+	  "description": "لعبة الكلمات المتقاطعة هي تجربة شيقة حيث يقوم اللاعبون بحل الألغاز واستكشاف الكلمات بطريقة ممتعة وتفاعلية.",
+	  "links": [
+		{
+		  "title": "الموقع الرسمي",
+		  "url": "https://crossword-arabic.netlify.app/"
+		},
+		{
+		  "title": "اللعب على ستيم",
+		  "url": "https://store.steampowered.com/app/game1"
+		}
+	  ]
+	},
     {
       "timage": "https://example.com/game2-thumbnail.jpg",
       "title": "Game 2 Title",
