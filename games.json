@@ -8,36 +8,28 @@
 		{
 		  "title": "الموقع الرسمي",
 		  "url": "https://crossword-arabic.netlify.app/"
-		},
-		{
-		  "title": "اللعب على ستيم",
-		  "url": "https://store.steampowered.com/app/game1"
 		}
 	  ]
 	},
     {
-      "timage": "https://example.com/game2-thumbnail.jpg",
-      "title": "Game 2 Title",
-      "description": "Game 2 offers a competitive multiplayer experience where teams battle it out in strategic combat.",
-      "links": [
-        {
-          "title": "Official Website",
-          "url": "https://example.com/game2"
-        }
-      ]
-    },
+	  "timage": "tictactoe.png",
+	  "title": "إكس-أو",
+	  "description": "لعبة تيك تاك تو تقدم تجربة تنافسية ممتعة حيث يواجه اللاعبون بعضهم في معركة استراتيجية.",
+	  "links": [
+		{
+		  "title": "الموقع الرسمي",
+		  "url": "https://tictactoe-arabic.netlify.app/"
+		}
+	  ]
+	},
     {
-      "timage": "https://example.com/game3-thumbnail.jpg",
-      "title": "Game 3 Title",
-      "description": "Game 3 is a casual puzzle game that challenges your brain with intriguing and fun puzzles.",
+      "timage": "rock-paper-scissors.png",
+      "title": "حجر ورقة مقص",
+      "description": "لعبة حجر ورقة مقص هي لعبة ألغاز بسيطة تتحدى عقلك مع أحاجي ممتعة وشيقة.",
       "links": [
         {
-          "title": "Official Website",
-          "url": "https://example.com/game3"
-        },
-        {
-          "title": "Download on Google Play",
-          "url": "https://play.google.com/store/apps/game3"
+          "title": "الموقع الرسمي",
+          "url": "https://rps-arabic.netlify.app/"
         }
       ]
     }
