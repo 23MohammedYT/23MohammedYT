@@ -8,12 +8,6 @@
 	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 20px;
-	transition: transform 0.3s ease;
-}
-
-#games-container:hover {
-	transform: scale(1.05);
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .game-card {
@@ -26,6 +20,7 @@
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	text-align: center;
 	padding: 10px;
+	transition: transform 0.3s ease;
 }
 
 .game-card img {
@@ -55,4 +50,5 @@
 
 .game-card:hover {
   transform: scale(1.05);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
